@@ -108,7 +108,7 @@ def gre_work(feature,target):
             error_term = sigmoid(output)*(1-sigmoid(output))
             #计算总变化del_w
             del_w += error * error_term * x
-        weights -= learnrate * del_w
+        weights -= learnrate * del_w / sample_count
         # 打印mse = 误差平方和/样本数
         if e % (epochs / 10) == 0:
             output = sigmoid(np.dot(feature,weights))
